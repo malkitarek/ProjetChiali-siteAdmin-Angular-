@@ -1,0 +1,8 @@
+<h1 mat-dialog-title></h1>
+<div mat-dialog-content>
+  <p>Veuillez-vous vraimment affilier ce patient?</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" class="btn btn-secondary" style="margin-left: 10%">Cancel</button>
+  <button mat-button [mat-dialog-close]="affil" cdkFocusInitial class="btn btn-success">Affilier</button>
+</div>

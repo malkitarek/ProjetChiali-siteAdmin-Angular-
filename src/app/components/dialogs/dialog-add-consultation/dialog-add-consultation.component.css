@@ -1,0 +1,10 @@
+.toolbar{
+
+  border-radius: 5px;
+  color: black;
+margin-bottom: 5px;
+}
+
+.toolbar-spacer{
+  flex: 1 1 auto;
+}

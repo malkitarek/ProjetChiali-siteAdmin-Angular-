@@ -1,0 +1,8 @@
+<h1 mat-dialog-title></h1>
+<div mat-dialog-content>
+  <p>Veuillez-vous vraimment supprimer ce patient?</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" class="btn btn-secondary">Cancel</button>
+  <button mat-button [mat-dialog-close]="supp" cdkFocusInitial class="btn btn-danger">Supprimer</button>
+</div>

@@ -1,0 +1,137 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+  background-image: url('/assets/images/bgImage.jpg'); }
+
+
+
+
+
+.clickable{
+  cursor: pointer;
+}
+#toolbarMenu {
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+#mainToolbar{
+  background-color: #c82333 !important;
+  color: white;
+}
+#mainToolbar .toolbar-spacer {
+  flex: 1 1 auto;
+
+}
+
+#mainToolbar .toolbar-icon {
+  cursor: pointer;
+  margin: 0 20px;
+}
+
+#sidenavContainer {
+  margin-top: 64px;
+}
+
+#sidenav {
+  width: 240px;
+}
+
+#sidenav.menu-close {
+  width: 70px
+}
+
+#sidenav.menu-open {
+  width: 240px
+}
+
+.avatar {
+  background-image: url('/assets/images/medecin.png');
+  background-size: cover;
+}
+#sidenav .avatar {
+  background-image: url('/assets/images/medecin.png');
+  background-size: cover;
+}
+
+.avatarp {
+  background-image: url('/assets/images/patient3.jpg');
+  background-size: cover;
+}
+#sidenav .avatarp {
+  background-image: url('/assets/images/patient3.jpg');
+  background-size: cover;
+}
+
+#sidenav .mat-list-item-content {
+  padding: 0;
+}
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+#sidenav .menu-item {
+  width: 100%;
+  border-radius: 0;
+  text-align: left;
+  padding: 10px;
+}
+
+#sidenav .menu-item:hover {
+  background: #eee;
+}
+#sidenav .menu-item mat-icon {
+  margin-right: 20px;
+  margin-left: 12px;
+}
+
+.dash-list h3 {
+  padding: 12px;
+}
+.dash-widget-bg1 {
+  width: 65px;
+  float: left;
+  color: #fff;
+  display: block;
+  font-size: 50px;
+  text-align: center;
+  line-height: 65px;
+  background: #009efb;
+  border-radius: 50%;
+  font-size: 40px;
+ height: 65px;}
+.dash-widget-info > h3 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.dash-widget-info span i {
+  width: 16px;
+  background: #fff;
+  border-radius: 50%;
+  color: #666666;
+  font-size: 9px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  margin-left: 5px;
+}
+.dash-widget-info > span.widget-title1 {
+  background: #009efb;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.dash-widget {
+  background-color: #fff;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  padding: 10px;
+  position: relative;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}

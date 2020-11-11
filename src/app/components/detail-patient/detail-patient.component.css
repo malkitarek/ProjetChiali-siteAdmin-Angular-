@@ -1,0 +1,49 @@
+
+.example-header-image {
+  font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+  background-image: image("../assets/images/medecin.png");
+  background-size: cover;
+}
+
+.table{
+  font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+}
+.backHead{
+  font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+  background-color: #F2EAEA !important;
+}
+.colorIcon{
+  color: #5D737E;
+}
+.imageList{
+  width: 200%;
+
+}
+.diverHead{
+  border-style: groove;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}

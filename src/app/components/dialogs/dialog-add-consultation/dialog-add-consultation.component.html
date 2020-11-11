@@ -1,0 +1,65 @@
+
+
+<mat-card-header>
+  <mat-toolbar class="toolbar">
+    <mat-card-title>Infos consulatation</mat-card-title>
+    <span class="toolbar-spacer"></span>
+    <mat-icon (click)="onNoClick()" class="clickable">cancel</mat-icon>
+  </mat-toolbar>
+</mat-card-header>
+<mat-card-content>
+  <div class="container">
+
+    <form class="example-form" [formGroup]="formConsulation">
+      <mat-form-field class="example-full-width">
+        <mat-label>Nom de traitement</mat-label>
+        <textarea matInput placeholder="Nom de traitement..." formControlName="nomTraitement"></textarea>
+      </mat-form-field>
+
+      <h3> <b>Contenu du traitement</b></h3>
+      <mat-form-field class="example-chip-list" style="width: 100%">
+        <mat-chip-list #chipList aria-label="Fruit selection">
+          <mat-chip *ngFor="let antecedent of getTraitements().controls;let i = index" [selectable]="selectable"
+                    [removable]="removable" (removed)="remove(i)">
+            {{antecedent.value}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input matInput placeholder="Nouveau ..."
+
+                 [matChipInputFor]="chipList"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="addOnBlur"
+                 (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+      </mat-form-field>
+
+      <!-- <mat-form-field class="example-full-width">
+         <mat-label>Rapport</mat-label>
+         <textarea matInput placeholder="Rapport..." formControlName="rapport"></textarea>
+
+
+
+       </mat-form-field>-->
+      <br>
+      <h3> <b>Rapport</b></h3>
+      <editor
+        formControlName="rapporte"
+        [init]="{
+       skin: 'borderless',
+       plugins: 'wordcount',
+       menubar: true,
+       min_height: 150,
+       branding:false
+       }"
+      ></editor>
+
+
+      <button type="submit" (click)="onSubmit()" [disabled]="!formConsulation.valid" class="btn btn-success">
+        <mat-icon>save</mat-icon>
+      </button>
+
+    </form>
+
+  </div>
+</mat-card-content>
+

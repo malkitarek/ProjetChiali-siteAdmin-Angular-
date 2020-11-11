@@ -1,0 +1,73 @@
+
+<!----------------------------------------- List membres ------------------------------------------------------->
+<div class="panel" >
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white  box-shadow" style="border-bottom: solid"  >
+    <h2 class="my-0 mr-md-auto"><b>Mes patients</b></h2>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <mat-form-field appearance="outline">
+        <mat-label>Rechercher Patient</mat-label>
+        <input matInput placeholder="placeholder" [(ngModel)]="searchText">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </nav>
+    <button routerLink="/createPatient"  class="btn btn-success" mat-stroked-button>
+      <mat-icon appearance="outline">add_box</mat-icon>
+      Ajouter
+    </button>
+
+  </div>
+  <div class="container">
+    <div class="table-responsive">
+
+      <table class="table table-bordered" *ngIf="membres">
+        <tr>
+          <th>Id</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Email</th>
+          <th>Adresse</th>
+          <th>Date naissance</th>
+          <th>Téléphone</th>
+          <!--<th>Service</th>-->
+        </tr>
+
+        <tr *ngFor="let mem of membres |  filter:searchText  | paginate: { itemsPerPage: 10,currentPage:p}">
+          <td>{{mem.numeroIdentite }}</td>
+          <td>{{mem.nom}}</td>
+          <td>{{mem.prenom}}</td>
+          <td>{{mem.appUser.email}}</td>
+          <td>{{mem.adresse}}</td>
+          <td>{{mem.dateNaissance}}</td>
+          <td>{{mem.appUser.phone}}</td>
+
+          <td>
+            <!------------------------------------------------------ Update patient ----------------------------------------------------------->
+
+            <a href="javascript:void(0)" (click)="update(mem.id)" class="text-decoration-none" style="color: #2cabe3" ><i class="ti-pencil-alt"></i></a>&nbsp;
+
+            <!-------------------------------------------------- Supprimer patient ------------------------------------------------------>
+            <a  href="javascript:void(0)" style="color: red" (click)="openDialog(mem.id,medecin.id)" class="text-decoration-none"><i class="ti-trash"></i></a>&nbsp;
+            <!--------------------------------------------- Détail patient -------------------------------------------------------------->
+
+            <a  href="javascript:void(0)" style="color: #1e7e34" (click)="smsMembreD(mem.id,medecin.id)" class="text-decoration-none"><i class="ti-eye"></i></a>&nbsp;
+
+            <a  href="javascript:void(0)" routerLink="/messages/{{mem.id}}"   class="text-decoration-none"><i class="ti-email"></i></a>
+            <!-------------------------------------- Pagination list Médecins ------------------------------------------------------>
+            <!--<ul class="nav nav-pills">
+              <li class="nav-item" *ngFor="let p of pages; let i=index">
+                <a [ngClass]="{'active':currentPage==i}" class="nav-link" (ngModel)="searchText" (click)="setPage(i,$event)" style="cursor: pointer">{{i}}</a>
+              </li>
+            </ul>-->
+          </td>
+        </tr>
+      </table>
+    </div>
+    <ul class="pagination">
+      <pagination-controls (pageChange)="p=$event"></pagination-controls>
+    </ul>
+    <!------------------------------------------------------------------------------------------------------------------------>
+  </div>
+</div>
+
+
+

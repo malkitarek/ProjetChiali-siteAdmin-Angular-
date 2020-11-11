@@ -1,0 +1,31 @@
+<div class="text-center">
+  <h1 mat-dialog-title><b>Consultation</b></h1>
+</div>
+
+<div mat-dialog-content>
+  <b>Ordonnance:</b>
+  <ul *ngFor="let trai of data.cons.traitement.contenu">
+    <li>
+      {{trai}}
+    </li>
+  </ul>
+</div>
+<div mat-dialog-content>
+  <b>Rapport:</b>
+  <div>
+    <editor [initialValue]="data.cons.rapport">
+
+    </editor>
+  </div>
+</div>
+<div mat-dialog-content>
+  <b>Date:</b>
+  <div>
+    {{data.cons.date}}
+  </div>
+</div>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>
+

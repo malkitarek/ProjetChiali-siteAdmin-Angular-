@@ -1,0 +1,67 @@
+<div class="panel" >
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white  box-shadow" style="border-bottom: solid"  >
+    <h2 class="my-0 mr-md-auto"><b>
+      <button routerLink="/profile" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+      Modifier Profile</b>
+    </h2>
+  </div>
+  <div class="container">
+    <div class="card">
+      <div class="card-body">
+
+        <form *ngIf="medecin" [formGroup]="formMedecin">
+          <div class="example-container">
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label>Nom</mat-label>
+              <input matInput placeholder="Nom" formControlName="nom" type="text" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label>Prénom</mat-label>
+              <input matInput placeholder="Prénom" formControlName="prenom" type="text" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label>Télephone</mat-label>
+              <input matInput placeholder="phone" formControlName="phone" type="tel" pattern="[0]{1}[0-9]{9}" required>
+              <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+          </div>
+          <div class="example-container col text-center">
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label>Date naissance</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="dateNaissance">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label>Adresse</mat-label>
+              <input matInput placeholder="adresse" formControlName="adresse" type="text" required>
+              <mat-icon matSuffix>place</mat-icon>
+            </mat-form-field>
+          </div>
+
+          <div class="col text-center">
+            <mat-form-field appearance="outline">
+              <mat-label>Mot de passe</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+            <br>
+            <span *ngIf="messageError" style="color: red;margin-top: -10%">{{messageError}}</span>
+          </div>
+          <div class="col text-center">
+            <button  (click)="update()" [disabled]="!formMedecin.valid" class="btn btn-primary" mat-stroked-button>
+              <mat-icon class="material-icons-outlined">edit</mat-icon>
+              Modifier
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

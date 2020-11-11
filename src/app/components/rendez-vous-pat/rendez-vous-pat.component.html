@@ -1,0 +1,61 @@
+
+<!----------------------------------------- ------------------------------------------------------->
+<div class="panel" >
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white  box-shadow" style="border-bottom: solid"  >
+    <h2 class="my-0 mr-md-auto"><b>Rendez-Vous</b></h2>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <mat-form-field appearance="outline">
+        <mat-label>Rechercher Rendez-Vous</mat-label>
+        <input matInput placeholder="placeholder" [(ngModel)]="searchText">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </nav>
+  </div>
+  <div class="container">
+    <div class="table-responsive">
+
+      <table class="table table-bordered" *ngIf="rendezvous">
+        <tr>
+          <th>Titre</th>
+          <th>Nom Médecin</th>
+          <th>Service</th>
+          <th>Date</th>
+          <th>Heure</th>
+          <th>Etat</th>
+        </tr>
+
+        <tr *ngFor="let rendez of rendezvous |  filter:searchText  | paginate: { itemsPerPage: 5,currentPage:p}">
+          <td>{{rendez.titre}}</td>
+          <td>{{rendez.medecin.nom}}</td>
+          <td>{{rendez.medecin.service.nom}}</td>
+          <td>{{rendez.dateDebut | date:'d MMM y'}}</td>
+          <td>{{rendez.dateDebut | date:'h:mm a'}}</td>
+          <td *ngIf="rendez.validation=='Rendez-Vous non validé'"><button mat-stroked-button class="btn btn-outline-success" (click)="openDialog(rendez.id)">
+            <mat-icon >done_outline</mat-icon>
+            Valider</button>
+          </td>
+          <td *ngIf="rendez.validation=='Rendez-Vous validé'">
+            Rendez-Vous validé
+          </td>
+
+
+        </tr>
+
+      </table>
+    </div>
+    <!-------------------------------------- Pagination list Médecins ------------------------------------------------------>
+    <!--<ul class="nav nav-pills">
+      <li class="nav-item" *ngFor="let p of pages; let i=index">
+        <a [ngClass]="{'active':currentPage==i}" class="nav-link" (ngModel)="searchText" (click)="setPage(i,$event)" style="cursor: pointer">{{i}}</a>
+      </li>
+    </ul>-->
+    <ul class="pagination">
+      <pagination-controls (pageChange)="p=$event"></pagination-controls>
+    </ul>
+    <!------------------------------------------------------------------------------------------------------------------------>
+  </div>
+
+</div>
+
+
+

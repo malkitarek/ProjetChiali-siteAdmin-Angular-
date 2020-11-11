@@ -1,0 +1,32 @@
+<div  class="container" id="print-rapport">
+  <div class="text-center">
+    <h1><b>Ordonnance</b></h1>
+  </div>
+
+  <div class="text-right">
+    <b>CHU:</b>{{data.cons.medecin.service.nomCHU}}
+    <br>
+    <b>Service</b>:{{data.cons.medecin.service.nom}}
+    <br>
+    <b>Médecin</b>:{{data.cons.medecin.nom}}&nbsp;{{data.cons.medecin.prenom}}
+  </div>
+
+
+
+  <ul *ngFor="let trai of data.cons.traitement.contenu">
+    <li>{{trai}}</li>
+  </ul>
+</div>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <div class="col-md-2">
+    <button  mat-mini-fab  mat-dialog-close color="primary" aria-label="Example icon button with a delete icon"
+             [useExistingCss]="true"
+             printSectionId="print-rapport"
+             ngxPrint >
+      <mat-icon>print</mat-icon>
+    </button>
+  </div>
+</mat-dialog-actions>
+

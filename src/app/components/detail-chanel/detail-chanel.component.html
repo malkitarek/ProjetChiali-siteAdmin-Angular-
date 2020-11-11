@@ -1,0 +1,290 @@
+<div class="panel" >
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white  box-shadow" style="border-bottom: solid"  >
+    <h2 class="my-0 mr-md-auto"><b>
+      <button routerLink="/detailPatient/{{idPat}}" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+      {{nomFeild}}</b></h2>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <h3><b>{{patient.nom}}&nbsp;{{patient.prenom}}</b></h3>
+    </nav>
+  </div>
+
+  <div class="container">
+    <div class="col text-center">
+      <mat-form-field color="warn">
+        <mat-label><b>Séléctionner Date</b></mat-label>
+        <input matInput [matDatepicker]="picker"
+               (dateInput)="addEvent('input', $event)" (dateChange)="addEvent('change', $event)" [value]="dateCalen" disabled>
+        <mat-datepicker-toggle matSuffix [for]="picker" style="color: #dc3545" ></mat-datepicker-toggle>
+        <mat-datepicker #picker disabled="false" color="warn" ></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-md-10">
+        <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4"  [selectedIndex]="heure" color="warn"
+                       style="margin-top: 2%;margin-bottom: 2%;border: solid  " backgroundColor="warn" >
+
+          <mat-tab >
+            <ng-template mat-tab-label>
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('0')" style="width: 600%">
+                0 h
+              </button>
+            </ng-template>
+          </mat-tab>
+
+          <mat-tab >
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('1')" style="width: 600%">
+                1 h
+              </button>
+            </ng-template>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('2')" style="width: 600%">
+                2 h
+              </button>
+            </ng-template>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('3')" style="width: 600%">
+                3 h
+              </button>
+            </ng-template>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('4')" style="width: 600%">
+                4 h
+              </button>
+            </ng-template>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('5')" style="width: 600%">
+                5 h
+              </button>
+            </ng-template>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('6')" style="width: 600%">
+                6 h
+              </button>
+            </ng-template>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('7')" style="width: 600%">
+                7 h
+              </button>
+            </ng-template>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('8')" style="width: 600%">
+                8 h
+              </button>
+            </ng-template>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('9')" style="width: 600%">
+                9 h
+              </button>
+            </ng-template>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('10')" style="width: 600%">
+                10 h
+              </button>
+            </ng-template>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('11')" style="width: 600%">
+                11 h
+              </button>
+            </ng-template>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('12')" style="width: 600%">
+                12 h
+              </button>
+            </ng-template>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('13')" style="width: 600%">
+                13 h
+              </button>
+            </ng-template>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('14')" style="width: 600%">
+                14 h
+              </button>
+            </ng-template>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('15')" style="width: 600%">
+                15 h
+              </button>
+            </ng-template>
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('16')" style="width: 600%">
+                16 h
+              </button>
+            </ng-template>
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('17')" style="width: 600%">
+                17 h
+              </button>
+            </ng-template>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('18')" style="width: 600%">
+                18 h
+              </button>
+            </ng-template>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('19')" style="width: 600%">
+                19 h
+              </button>
+            </ng-template>
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('20')" style="width: 600%">
+                20 h
+              </button>
+            </ng-template>
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('21')" style="width: 600%">
+                21 h
+              </button>
+            </ng-template>
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('22')" style="width: 600%">
+                22 h
+              </button>
+            </ng-template>
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label >
+              <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="onProg('23')" style="width: 600%">
+                23 h
+              </button>
+            </ng-template>
+          </mat-tab>
+
+
+
+        </mat-tab-group>
+      </div>
+    </div>
+
+   <div class="row">
+     <div class="col-md-9">
+       <div style="display: block;height: 20%" *ngIf="nomFeild!='ECG wave'">
+         <canvas baseChart
+                 [datasets]="Data2"
+                 [data]="Data[0].data | paginate: { itemsPerPage: 5,currentPage:p}"
+                 [labels]="Labels  | paginate: { itemsPerPage: 5,currentPage:p}"
+                 [options]="Options"
+                 [chartType]="Type" ></canvas>
+         <ul class="pagination">
+           <pagination-controls (pageChange)="p=$event"></pagination-controls>
+         </ul>
+       </div>
+
+       <div style="display: block;height: 20%" *ngIf="nomFeild=='ECG wave'">
+         <canvas baseChart
+                 [datasets]="Data2"
+                 [data]="Data[0].data | paginate: { itemsPerPage: 50,currentPage:pEcg}"
+                 [labels]="Labels  | paginate: { itemsPerPage: 50,currentPage:pEcg}"
+                 [options]="Options2"
+                 [chartType]="Type" ></canvas>
+         <ul class="pagination">
+           <pagination-controls (pageChange)="pEcg=$event"></pagination-controls>
+         </ul>
+
+       </div>
+     </div>
+     <div class="col-md-3">
+       <div class="card" style="height: 50%">
+         <div class="card-header col text-center" style="height: 10px">Dernières mesures</div>
+         <div class="card-body message-list" >
+           <mat-selection-list *ngFor="let dat of lastDonnes">
+             <mat-list-item [ngClass]="dat.time    == dateActive ?'list-group-item list-group-item-action active':'list-group-item list-group-item-action'"
+                            style="border: none;cursor: pointer"
+                             role="listitem" (click)="getDate(dat.time)">
+               {{dat.time | date:'MMM d, y, h a'}}
+             </mat-list-item>
+             <mat-divider></mat-divider>
+
+           </mat-selection-list>
+         </div>
+       </div>
+       <div class="card" style="margin-top: 10%;margin-bottom: 10%">
+         <div class="card-header col text-center" >Feilds</div>
+         <div class="card-body" >
+           <mat-selection-list *ngFor="let feild of feilds">
+             <mat-list-item [ngClass]="feild.nom    == nomFeild ?'list-group-item list-group-item-action active':'list-group-item list-group-item-action'"
+                            style="border: none;cursor: pointer"
+                            role="listitem" (click)="getChanel(feild.nom)">
+               {{feild.nom}}
+             </mat-list-item>
+             <mat-divider style="background-color:#dc3545;"></mat-divider>
+
+           </mat-selection-list>
+         </div>
+       </div>
+
+     </div>
+
+
+   </div>
+
+
+  </div>
+
+</div>
+
+
+
+
+

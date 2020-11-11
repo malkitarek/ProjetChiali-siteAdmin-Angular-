@@ -1,0 +1,43 @@
+<div class="panel" >
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white  box-shadow" style="border-bottom: solid"  >
+    <h2 class="my-0 mr-md-auto"><b>
+      <button routerLink="/devices" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+      Créer Device</b></h2>
+  </div>
+  <div class="container">
+    <form [formGroup]="formDevice" >
+
+      <mat-form-field appearance="outline" >
+        <mat-label>Nom</mat-label>
+        <input matInput placeholder="Nom de device" formControlName="nom" type="text" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline" >
+        <mat-label>Description</mat-label>
+        <textarea matInput placeholder="Description de device" formControlName="description" type="text" required></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Patient</mat-label>
+        <mat-select formControlName="patientId" >
+          <mat-option [value]="pat.id" *ngFor="let pat of patients">{{pat.nom}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="hasError('patientId', 'patientTaken')">patient already has a device</mat-error>
+      </mat-form-field>
+      <br>
+      <!--<mat-form-field appearance="outline">
+        <mat-label>Liste Capteurs</mat-label>
+        <mat-select formControlName="capteurs"  multiple>
+          <mat-option *ngFor="let capteur of capteursList" [value]="capteur">{{capteur.nom}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>-->
+      <button class="btn btn-success" type="submit" [disabled]="!formDevice.valid" (click)="save()">Créer</button>
+
+    </form>
+  </div>
+
+
+</div>
