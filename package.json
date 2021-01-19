@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "heroku-postbuild": "ng build --prod && npm install -g http-server-spa",
-    "start": "http-server-spa dist/frontend-admin index.html $PORTh",
+    "start": "http-server-spa dist/frontend-admin index.html $PORT",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
