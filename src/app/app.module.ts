@@ -2,19 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
+
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {NgxPaginationModule} from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { PatientComponent } from './components/patient/patient.component';
-import { ConfirmeComponent } from './components/confirme/confirme.component';
-import { RegisterComponent } from './components/register/register.component';
-import { ForgetMdpComponent } from './components/forget-mdp/forget-mdp.component';
-import { MembreComponent } from './components/membre/membre.component';
-import { CreatePatientComponent } from './components/create-patient/create-patient.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatStepperModule} from '@angular/material/stepper';
 import {MatIconModule} from '@angular/material/icon';
@@ -28,9 +22,9 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import { UpdatePatientComponent } from './components/update-patient/update-patient.component';
+
 import {MatChipsModule} from '@angular/material/chips';
-import { DetailPatientComponent } from './components/detail-patient/detail-patient.component';
+
 import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatTreeModule} from '@angular/material/tree';
@@ -38,22 +32,15 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
-import { DeviceComponent } from './components/device/device.component';
-import { CreateDeviceComponent } from './components/create-device/create-device.component';
-import { UpdateDeviceComponent } from './components/update-device/update-device.component';
-import { DetailChanelComponent } from './components/detail-chanel/detail-chanel.component';
 import {ChartsModule} from 'ng2-charts';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatBadgeModule} from '@angular/material/badge';
-import { DialogSuppMembreComponent } from './components/dialogs/dialog-supp-membre/dialog-supp-membre.component';
-import { DialogAffilMembreComponent } from './components/dialogs/dialog-affil-membre/dialog-affil-membre.component';
-import { DialogAddConsultationComponent } from './components/dialogs/dialog-add-consultation/dialog-add-consultation.component';
-import { DialogSuppConsultationComponent } from './components/dialogs/dialog-supp-consultation/dialog-supp-consultation.component';
+
 import {MatMenuModule} from '@angular/material/menu';
-import { MessageMPComponent } from './components/message-m-p/message-m-p.component';
+
 import {ScrollingModule} from '@angular/cdk/scrolling';
-import { RendezVousComponent } from './components/rendez-vous/rendez-vous.component';
+
 import {
   AgendaService,
   DayService,
@@ -63,66 +50,46 @@ import {
   ScheduleModule,
   WeekService, WorkWeekService
 } from '@syncfusion/ej2-angular-schedule';
-import { ServiceComponent } from './components/service/service.component';
-import { RendezVousPatComponent } from './components/rendez-vous-pat/rendez-vous-pat.component';
-import { DialogValiderRendezComponent } from './components/dialogs/dialog-valider-rendez/dialog-valider-rendez.component';
-import { DonneePatComponent } from './components/donnee-pat/donnee-pat.component';
-import { MedecinComponent } from './components/medecin/medecin.component';
-import { DialogSuppDeviceComponent } from './components/dialogs/dialog-supp-device/dialog-supp-device.component';
+
 import {MatProgressBar, MatProgressBarModule} from '@angular/material/progress-bar';
-import { ProfileComponent } from './components/profile/profile.component';
-import { EditProfileMedComponent } from './components/edit-profile-med/edit-profile-med.component';
-import { EditProfilePatComponent } from './components/edit-profile-pat/edit-profile-pat.component';
-import { ChangePasswordComponent } from './components/change-password/change-password.component';
+
 import {EditorModule} from '@tinymce/tinymce-angular';
-import { ConsultationComponent } from './components/consultation/consultation.component';
-import { DialogShowConsultationComponent } from './components/dialogs/dialog-show-consultation/dialog-show-consultation.component';
+
 import {NgxPrintModule} from 'ngx-print';
-import { DialogRapportComponent } from './components/dialogs/dialog-rapport/dialog-rapport.component';
-import { DialogOrdonnanceComponent } from './components/dialogs/dialog-ordonnance/dialog-ordonnance.component';
+import {AppComponent} from './app.component';
+import { LoginComponent } from './components/login/login.component';
+import { PlombierComponent } from './components/plombier/plombier.component';
+import { ErreurComponent } from './components/erreur/erreur.component';
+import { CreatePlombierComponent } from './components/create-plombier/create-plombier.component';
+import {MatProgressSpinnerModule, MatSpinner} from '@angular/material/progress-spinner';
+import { UpdatePlombierComponent } from './components/update-plombier/update-plombier.component';
+import { DialogSuppPlombierComponent } from './components/dialogs/dialog-supp-plombier/dialog-supp-plombier.component';
+import { DialogAddErreurComponent } from './components/dialogs/dialog-add-erreur/dialog-add-erreur.component';
+import { ChangerPasswordComponent } from './components/changer-password/changer-password.component';
+import { AgmCoreModule } from '@agm/core';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    PatientComponent,
-    ConfirmeComponent,
-    RegisterComponent,
-    ForgetMdpComponent,
-    MembreComponent,
-    CreatePatientComponent,
-    UpdatePatientComponent,
-    DetailPatientComponent,
-    DeviceComponent,
-    CreateDeviceComponent,
-    UpdateDeviceComponent,
-    DetailChanelComponent,
-    DialogSuppMembreComponent,
-    DialogAffilMembreComponent,
-    DialogAddConsultationComponent,
-    DialogSuppConsultationComponent,
-    MessageMPComponent,
-    RendezVousComponent,
-    ServiceComponent,
-    RendezVousPatComponent,
-    DialogValiderRendezComponent,
-    DonneePatComponent,
-    MedecinComponent,
-    DialogSuppDeviceComponent,
-    ProfileComponent,
-    EditProfileMedComponent,
-    EditProfilePatComponent,
-    ChangePasswordComponent,
-    ConsultationComponent,
-    DialogShowConsultationComponent,
-    DialogRapportComponent,
-    DialogOrdonnanceComponent,
+    PlombierComponent,
+    ErreurComponent,
+    CreatePlombierComponent,
+    UpdatePlombierComponent,
+    DialogSuppPlombierComponent,
+    DialogAddErreurComponent,
+    ChangerPasswordComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBBBq95_i6IUHIxt156FomdrpeDu4Biccc',
+      libraries: ['places']
+    }),
     HttpClientModule,
     FormsModule,
     EditorModule,
@@ -136,6 +103,7 @@ import { DialogOrdonnanceComponent } from './components/dialogs/dialog-ordonnanc
     MatButtonModule,
     MatCheckboxModule,
     MatDatepickerModule,
+    MatProgressSpinnerModule,
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
@@ -160,13 +128,11 @@ import { DialogOrdonnanceComponent } from './components/dialogs/dialog-ordonnanc
     ReactiveFormsModule,
     ChartsModule,
     ScheduleModule,
-
-
-    RecurrenceEditorModule
+    RecurrenceEditorModule,
 
 
   ],
-  providers: [DayService,WeekService,MonthService,MonthAgendaService,WorkWeekService,AgendaService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

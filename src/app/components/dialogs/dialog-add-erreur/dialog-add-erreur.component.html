@@ -1,0 +1,38 @@
+
+
+<mat-card-header>
+  <mat-toolbar class="toolbar">
+    <mat-card-title *ngIf="data.id==-1">Ajouter Erreur</mat-card-title>
+    <mat-card-title *ngIf="data.id!=-1">Modifier Erreur</mat-card-title>
+    <span class="toolbar-spacer"></span>
+    <mat-icon (click)="onNoClick()" class="clickable">cancel</mat-icon>
+  </mat-toolbar>
+</mat-card-header>
+<mat-card-content>
+  <div class="container">
+    <form class="example-form" [formGroup]="formErreur" *ngIf="formErreur">
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Code d'erreur</mat-label>
+          <input matInput placeholder="Code d'erruer..." formControlName="code">
+        </mat-form-field>
+
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Spécification</mat-label>
+          <textarea matInput placeholder="Spécification d'erreur..." formControlName="specification"></textarea>
+        </mat-form-field>
+
+
+      <button *ngIf="data.id==-1" type="submit" (click)="onSubmit()" [disabled]="!formErreur.valid" class="btn btn-success">
+        Ajouter
+      </button>
+      <button *ngIf="data.id!=-1" type="submit" (click)="onSubmit()" [disabled]="!formErreur.valid" class="btn btn-success">
+        Modifier
+      </button>
+
+    </form>
+
+  </div>
+</mat-card-content>
+

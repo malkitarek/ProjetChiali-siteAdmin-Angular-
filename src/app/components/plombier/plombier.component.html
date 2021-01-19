@@ -1,0 +1,57 @@
+<div class="panel" >
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white  box-shadow" style="border-bottom: solid"  >
+    <h2 class="my-0 mr-md-auto"><b>Plombiers</b></h2>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <mat-form-field appearance="outline">
+        <mat-label>Rechercher Plombier</mat-label>
+        <input matInput placeholder="placeholder" [(ngModel)]="searchText">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </nav>
+    <button on routerLink="/createPlombier" class="btn btn-success" mat-stroked-button>
+      <mat-icon appearance="outline">add_box</mat-icon>
+      Ajouter
+    </button>
+  </div>
+
+  <div class="align-items-center" *ngIf="!plombiers"><mat-spinner></mat-spinner></div>
+  <div class="text-center"*ngIf="plombiers && plombiers.length==0">
+    <h1><b>Aucun Plombier Exist !</b></h1>
+  </div>
+  <div class="container" *ngIf="plombiers && plombiers.length>0">
+    <div class="table-responsive">
+      <table class="table table-bordered" *ngIf="plombiers">
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Téléphone</th>
+          <th>Ville</th>
+        </tr>
+
+        <tr *ngFor="let plo of plombiers |  filter:searchText  | paginate: { itemsPerPage: 10,currentPage:p}">
+          <td>{{plo.nom}}</td>
+          <td>{{plo.prenom}}</td>
+          <td>{{plo.compte.phone}}</td>
+          <td>{{plo.ville.nom}}</td>
+          <td>
+            <!------------------------------------------------------ Update patient ----------------------------------------------------------->
+
+            <a href="javascript:void(0)" (click)="update(plo.id)" class="text-decoration-none" style="color: #2cabe3" ><i class="ti-pencil-alt"></i></a>&nbsp;
+
+            <!-------------------------------------------------- Supprimer patient ------------------------------------------------------>
+            <a  href="javascript:void(0)" style="color: red" (click)="openDialog(plo.id)" class="text-decoration-none"><i class="ti-trash"></i></a>&nbsp;
+            <!--------------------------------------------- Détail patient -------------------------------------------------------------->
+
+          </td>
+        </tr>
+
+      </table>
+    </div>
+    <!-------------------------------------- Pagination list Plombiers ------------------------------------------------------>
+    <ul class="pagination">
+      <pagination-controls (pageChange)="p=$event"></pagination-controls>
+    </ul>
+    <!------------------------------------------------------------------------------------------------------------------------>
+  </div>
+
+</div>

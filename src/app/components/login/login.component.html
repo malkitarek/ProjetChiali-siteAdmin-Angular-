@@ -4,33 +4,26 @@
     <strong>Bad credentials!</strong>
   </div>
   <div class="form-toggle"></div>
- <div class="form-panel one">
+  <div class="form-panel one">
     <div class="form-header text-center">
-      <img src="/assets/images/logo-dark2.png"  width="64">
+      <img src="/assets/images/logo.png"  width="64">
       <br>
       <h1>Login</h1>
     </div>
     <div class="form-content">
-      <form #f="ngForm" (ngSubmit)="onLogin(f.value)" >
+      <form #form="ngForm" (ngSubmit)="onLogin(form)" >
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="text" id="email" name="email" required="required" ngModel=""/>
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required="required" ngModel=""/>
         </div>
         <div class="form-group">
           <label for="password">Mot de passe</label>
           <input type="password" id="password" name="password" required="required" ngModel=""/>
         </div>
         <div class="form-group">
-          <label class="form-remember">
-          </label><a class="form-recovery" routerLink="/forgetMdp">Mot de passe oblié?</a>
-        </div>
-        <div class="form-group">
           <button type="submit">S'identifier</button>
         </div>
       </form>
     </div>
-  </div>
-  <div class="form-panel two" routerLink="/register" >
-
   </div>
 </div>

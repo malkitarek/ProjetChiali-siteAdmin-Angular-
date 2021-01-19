@@ -1,47 +1,15 @@
-<div *ngIf="showHead && showHead2 && user && user.appUser.role=='MEDECIN'">
-
+<div *ngIf="connecter!==null && user">
   <mat-toolbar id="mainToolbar">
     <mat-icon
       (click)="onToolbarMenuToggle()"
       id="toolbarMenu">subject</mat-icon>
     <img  src="/assets/images/logo.png" width="36">&nbsp;&nbsp;
-    SoinConnect
+    Trading
     <span class="toolbar-spacer"></span>
 
 
-    <mat-icon  [matMenuTriggerFor]="menuMessage"
-               class="toolbar-icon"
-               [matBadge]="notifsNoread"
-               [matBadgeHidden]="notifsNoread==0"
-               matBadgePosition="after"
-               matBadgeColor="accent"
-    >notifications</mat-icon>
-
-    <mat-menu #menuMessage="matMenu" xPosition="before" class="noti">
-      <mat-selection-list>
-        <mat-list-item><b>Notifications</b></mat-list-item>
-        <mat-list-item  *ngFor="let notif of notifications" style="height: 100px;cursor: pointer" (click)="onNotif(notif.type)" [ngClass]="notif.readed==null?'list-group-item-secondary list-group-item-action':'list-group-item list-group-item-action'">
-          <img matListAvatar src="/assets/images/patientNo.png" alt="...">
-          <h3 > {{notif.contenu}} </h3>
-          <mat-divider></mat-divider>
-        </mat-list-item>
-
-      </mat-selection-list>
-    </mat-menu>
-
-    <mat-icon [matBadgeHidden]="mesgNoReaded==0"
-              [matBadge]="mesgNoReaded"
-              (click)="onMessage()"
-              matBadgePosition="after"
-              matBadgeColor="accent"
-              class="toolbar-icon"
-              aria-label="Example icon-button with a menu">
-      question_answer
-    </mat-icon>
-
-
     <div mat-card-avatar class="avatar toolbar-icon"  routerLink="profile"></div>
-    <span class="clickable"  routerLink="profile">Medecin</span>
+    <span class="clickable"  routerLink="profile">Admin</span>
     <mat-icon class="toolbar-icon" aria-label="Example icon-button with a menu" [matMenuTriggerFor]="menu">
       arrow_drop_down_circle
     </mat-icon>
@@ -59,7 +27,7 @@
         <mat-icon class="material-icons-outlined">person</mat-icon>
         <span>Profile</span>
       </button>
-      <button mat-menu-item routerLink="changepassword">
+      <button mat-menu-item routerLink="changerPassword">
         <mat-icon class="material-icons-outlined" >vpn_key</mat-icon>
         <span>Changer mot de passe</span>
       </button>
@@ -68,10 +36,7 @@
         <span>Déconnexion</span>
       </button>
     </mat-menu>
-
   </mat-toolbar>
-
-
 
   <mat-sidenav-container
     id="sidenavContainer"
@@ -99,56 +64,40 @@
           <button
             class="menu-item"
             routerLinkActive="active"
-            routerLink="patients"
+            routerLink="plombiers"
             mat-flat-button>
             <mat-icon  class="material-icons-outlined">people_alt</mat-icon>
-            Patients</button>
-        </mat-list-item>
-        <mat-list-item>
-          <button
-            class="menu-item"
-            routerLinkActive="active"
-            routerLink="membres"
-            mat-flat-button>
-            <mat-icon  class="material-icons-outlined">people_alt</mat-icon>
-            Mes patients</button>
+            Plombiers</button>
         </mat-list-item>
 
         <mat-list-item>
           <button
             class="menu-item"
             routerLinkActive="active"
-            routerLink="devices"
+            routerLink="erreurs"
             mat-flat-button>
-            <mat-icon  class="material-icons-outlined">nfc</mat-icon>
-            Devices</button>
+            <mat-icon  class="material-icons-outlined">error</mat-icon>
+            Erreurs</button>
         </mat-list-item>
-
-       <!-- <mat-list-item>
-          <button
-            class="menu-item"
-            (click)="onMessage()"
-            mat-flat-button>
-            <mat-icon
-              [matBadgeHidden]="mesgNoReaded==0"
-              [matBadge]="mesgNoReaded"
-              matBadgePosition="after"
-              matBadgeColor="accent"
-              class="material-icons-outlined">question_answer</mat-icon>
-            Messages</button>
-        </mat-list-item>-->
 
         <mat-list-item>
           <button
             class="menu-item"
-            routerLink="rendezvous"
             routerLinkActive="active"
+            routerLink="changerPassword"
             mat-flat-button>
-            <mat-icon
-              class="material-icons-outlined">date_range</mat-icon>
-            Rendez-vous</button>
+            <mat-icon  class="material-icons-outlined">vpn_key</mat-icon>
+            Changer Mot de passe</button>
         </mat-list-item>
 
+        <mat-list-item>
+          <button
+            class="menu-item"
+            (click)="onLogout()"
+            mat-flat-button>
+            <mat-icon  class="material-icons-outlined">input</mat-icon>
+            Déconnexion</button>
+        </mat-list-item>
       </mat-list>
     </mat-sidenav>
 
@@ -156,225 +105,10 @@
       [ngStyle]="{ 'margin-left.px': contentMargin }"
       style="background-color: white"
     >
+
       <router-outlet></router-outlet>
     </mat-sidenav-content>
 
   </mat-sidenav-container>
-
-
-
 </div>
-<!------------------------------------------------PAtient ------------------------------------------------------------>
-
-<div *ngIf="showHead && showHead2 && user && user.appUser.role=='PATIENT'">
-
-  <mat-toolbar id="mainToolbar">
-    <mat-icon
-      (click)="onToolbarMenuToggle()"
-      id="toolbarMenu">subject</mat-icon>
-    <img  src="/assets/images/logo.png" width="36">&nbsp;&nbsp;
-    SoinConnect
-    <span class="toolbar-spacer"></span>
-
-
-    <mat-icon  [matMenuTriggerFor]="menuMessage"
-      class="toolbar-icon"
-      [matBadge]="notifsNoread"
-      [matBadgeHidden]="notifsNoread==0"
-      matBadgePosition="after"
-      matBadgeColor="accent"
-    >notifications</mat-icon>
-
-    <mat-menu #menuMessage="matMenu" xPosition="before" class="noti">
-      <mat-selection-list>
-        <mat-list-item><b>Notifications</b></mat-list-item>
-        <mat-list-item  *ngFor="let notif of notifications" style="height: 100px;cursor: pointer" (click)="onNotif(notif.type)" [ngClass]="notif.readed==null?'list-group-item-secondary list-group-item-action':'list-group-item list-group-item-action'">
-          <img matListAvatar src="/assets/images/medecin.png" alt="...">
-          <h3 > {{notif.contenu}} </h3>
-          <mat-divider></mat-divider>
-        </mat-list-item>
-
-      </mat-selection-list>
-    </mat-menu>
-
-    <mat-icon [matBadgeHidden]="mesgNoReaded==0"
-              [matBadge]="mesgNoReaded"
-               (click)="onMessage()"
-              matBadgePosition="after"
-              matBadgeColor="accent"
-              class="toolbar-icon"
-              aria-label="Example icon-button with a menu">
-      question_answer
-    </mat-icon>
-
-
-    <div mat-card-avatar class="avatarp toolbar-icon"  routerLink="profile"></div>
-    <span class="clickable" routerLink="profile">Patient</span>
-    <mat-icon class="toolbar-icon" aria-label="Example icon-button with a menu" [matMenuTriggerFor]="menu">
-      arrow_drop_down_circle
-    </mat-icon>
-    <mat-menu #menu="matMenu" >
-      <mat-card>
-        <mat-card-header>
-          <div mat-card-avatar
-               class="avatarp"></div>
-
-          <mat-card-title>{{user.nom}}</mat-card-title>
-          <mat-card-subtitle>{{user.prenom}}</mat-card-subtitle>
-        </mat-card-header>
-      </mat-card>
-      <button mat-menu-item routerLink="profile">
-        <mat-icon class="material-icons-outlined">person</mat-icon>
-        <span>Profile</span>
-      </button>
-      <button mat-menu-item routerLink="changepassword">
-        <mat-icon class="material-icons-outlined">vpn_key</mat-icon>
-        <span>Changer mot de passe</span>
-      </button>
-      <button mat-menu-item  (click)="onLogout()">
-        <mat-icon>input</mat-icon>
-        <span>Déconnexion</span>
-      </button>
-    </mat-menu>
-
-  </mat-toolbar>
-
-
-
-  <mat-sidenav-container
-    id="sidenavContainer"
-    fullscreen>
-    <mat-sidenav
-      mode="side"
-      #sidenav
-      id="sidenav"
-      [class.menu-open]="isMenuOpen"
-      [class.menu-close]="!isMenuOpen"
-      opened>
-
-      <mat-list id="menus">
-        <mat-card>
-          <mat-card-header>
-            <div
-              mat-card-avatar
-              class="avatarp"></div>
-
-            <mat-card-title>{{user.nom}}</mat-card-title>
-            <mat-card-subtitle>{{user.prenom}}</mat-card-subtitle>
-          </mat-card-header>
-        </mat-card>
-      </mat-list>
-
-      <mat-list-item>
-        <button
-          class="menu-item"
-          routerLink="donneepat"
-          routerLinkActive="active"
-          mat-flat-button>
-          <mat-icon
-            class="material-icons-outlined">poll</mat-icon>
-          Données</button>
-      </mat-list-item>
-
-      <mat-list-item>
-        <button
-          class="menu-item"
-          routerLink="rendezvousp"
-          routerLinkActive="active"
-          mat-flat-button>
-          <mat-icon
-            class="material-icons-outlined">date_range</mat-icon>
-          Rendez-vous</button>
-      </mat-list-item>
-  <mat-divider></mat-divider>
-      <p class="font-weight-bold" style="text-align: center;color: #c82333;margin-top: 20px">List des services</p>
-
-      <mat-list-item>
-        <ul class="list-unstyled components slimescroll-id" id="accordion" *ngFor="let ser of services">
-          <mat-list-item *ngIf="ser.medt.length>0">
-            <a href="{{'#homeSubmenu'+ser.id}}"
-                    class="menu-item accordion-toggle wave-effect"
-                    data-toggle="collapse" aria-expanded="false"
-               mat-flat-button>
-              <mat-icon
-                class="material-icons-outlined m-r-10">queue</mat-icon>
-              &nbsp;&nbsp;&nbsp;{{ser.nom}}</a>
-
-            <ul class="collapse list-unstyled" id="homeSubmenu{{ser.id}}" data-parent="#accordion" >
-              <mat-list-item *ngFor="let med of ser.medt" >
-                <button
-                  class="menu-item"
-                  routerLink="medecin/{{med.id}}"
-                  routerLinkActive="active"
-                  style="margin-left: 10px;"
-                  mat-flat-button>
-                  <mat-icon
-                    class="material-icons-outlined">perm_identity</mat-icon>
-                  {{med.nom}}</button>
-              </mat-list-item>
-            </ul>
-          </mat-list-item>
-        </ul>
-      </mat-list-item>
-      <mat-list>
-        <!--<mat-list-item>
-          <button
-            class="menu-item"
-            (click)="onMessage()"
-            mat-flat-button>
-            <mat-icon
-              [matBadgeHidden]="mesgNoReaded==0"
-              [matBadge]="mesgNoReaded"
-              matBadgePosition="after"
-              matBadgeColor="accent"
-              class="material-icons-outlined">question_answer</mat-icon>
-            Messages</button>
-        </mat-list-item>-->
-
-
-
-      </mat-list>
-
-    </mat-sidenav>
-
-    <mat-sidenav-content
-      [ngStyle]="{ 'margin-left.px': contentMargin }"
-      style="background-color: white"
-    >
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-
-  </mat-sidenav-container>
-
-
-
-</div>
-
-
-
-
-
-<app-register *ngIf="showRegister && !showHead"></app-register>
-<app-forget-mdp *ngIf="showForget && !showHead"></app-forget-mdp>
-<app-confirme *ngIf="showConfirm && !showHead"></app-confirme>
-<app-login *ngIf="(showLogin && !showHead) || !showHead2"></app-login>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<app-login *ngIf="connecter==null"></app-login>

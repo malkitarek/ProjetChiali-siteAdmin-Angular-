@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "heroku-postbuild": "ng build --prod && npm install -g http-server-spa",
+    "start": "http-server-spa dist/frontend-admin index.html $PORTh",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -11,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.1.0",
     "@angular/animations": "^9.0.7",
     "@angular/cdk": "^9.2.0",
     "@angular/common": "~9.0.0",
@@ -25,6 +27,7 @@
     "@syncfusion/ej2-angular-schedule": "^18.1.45",
     "@syncfusion/ej2-material-theme": "^18.1.45",
     "@tinymce/tinymce-angular": "^3.6.0",
+    "@types/googlemaps": "^3.39.12",
     "angular-font-awesome": "^3.1.2",
     "angular2-jwt": "^0.2.3",
     "bootstrap": "^4.4.1",

@@ -2,11 +2,10 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: "Trebuchet MS", Helvetica, sans-serif !important;
-  background-image: url('/assets/images/bgImage.jpg'); }
-
-
-
-
+  background-image: url('/assets/images/bgImage.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
 
 .clickable{
   cursor: pointer;
@@ -47,20 +46,20 @@ body { margin: 0; font-family: "Trebuchet MS", Helvetica, sans-serif !important;
 }
 
 .avatar {
-  background-image: url('/assets/images/medecin.png');
+  background-image: url('/assets/images/admin.jpg');
   background-size: cover;
 }
 #sidenav .avatar {
-  background-image: url('/assets/images/medecin.png');
+  background-image: url('/assets/images/admin.jpg');
   background-size: cover;
 }
 
 .avatarp {
-  background-image: url('/assets/images/patient3.jpg');
+  background-image: url('/assets/images/admin.jpg');
   background-size: cover;
 }
 #sidenav .avatarp {
-  background-image: url('/assets/images/patient3.jpg');
+  background-image: url('/assets/images/admin.jpg');
   background-size: cover;
 }
 
