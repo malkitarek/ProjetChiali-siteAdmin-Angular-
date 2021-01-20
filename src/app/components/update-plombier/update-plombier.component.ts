@@ -62,7 +62,7 @@ export class UpdatePlombierComponent implements OnInit {
     })
   }
   setCurrentLocation(latitude,longitude) {
-    if ('geolocation' in navigator) {
+    /*if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = latitude;
         this.formPlombier.get('latitude').setValue( this.latitude);
@@ -70,7 +70,12 @@ export class UpdatePlombierComponent implements OnInit {
         this.formPlombier.get('longitude').setValue( this.longitude);
         this.zoom = 8;
       });
-    }
+    }*/
+    this.latitude = latitude;
+    this.formPlombier.get('latitude').setValue( this.latitude);
+    this.longitude = longitude;
+    this.formPlombier.get('longitude').setValue( this.longitude);
+    this.zoom = 8;
   }
   markerDragEnd($event: MouseEvent) {
     this.latitude = $event.coords.lat;

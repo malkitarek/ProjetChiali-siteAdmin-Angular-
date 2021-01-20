@@ -14,7 +14,7 @@ export class CreatePlombierComponent implements OnInit {
   formCompte: FormGroup;
   villes;
   hide = true;
-  latitude: number=36.75800000;
+  latitude: number;
   longitude: number;
   zoom: number;
   constructor(private appService:AppService, private formBuilder:FormBuilder,private router:Router,private mapsAPILoader: MapsAPILoader) { }
@@ -57,7 +57,7 @@ export class CreatePlombierComponent implements OnInit {
     })
   }
    setCurrentLocation() {
-   /* if ('geolocation' in navigator) {
+   /*if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = position.coords.latitude;
         this.formPlombier.get('latitude').setValue( this.latitude);
@@ -65,10 +65,11 @@ export class CreatePlombierComponent implements OnInit {
         this.formPlombier.get('longitude').setValue( this.longitude);
         this.zoom = 7;
       });}*/
-     this.latitude = 36.75800000;
+     this.latitude = 36.6997;
      this.formPlombier.get('latitude').setValue( this.latitude);
-     this.longitude = 3.07300000;
+     this.longitude = 3.0576;
      this.formPlombier.get('longitude').setValue( this.longitude);
+     this.zoom=7;
 
   }
   markerDragEnd($event: MouseEvent) {
