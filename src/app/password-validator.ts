@@ -27,7 +27,7 @@ export class PasswordValidator {
     return new Promise((resolve, reject) => {
       this.timeout = setTimeout(() => {
         //this.http.get("http://192.168.99.100:30006/user/"+control.value+"/"+control.root.get('email').value,{headers:new HttpHeaders({'Authorization':this.authSer.jwtToken})})
-        this.http.get("http://localhost:8888/user/"+control.value+"/"+control.root.get('username').value,{headers:new HttpHeaders({'Authorization':this.authSer.jwtToken})})
+        this.http.get("https://project-chiali.herokuapp.com/user/"+control.value+"/"+control.root.get('username').value,{headers:new HttpHeaders({'Authorization':this.authSer.jwtToken})})
           .subscribe(flag => {
               if (flag) {
                 resolve({'passwordTaken': true});
