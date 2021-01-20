@@ -7,7 +7,7 @@ import {JwtHelper} from 'angular2-jwt';
 })
 export class AppService {
   //public host="http://localhost:8888"
-  public host="http://chiali-backend.herokuapp.com";
+  public host="https://chiali-backend.herokuapp.com";
   public jwtToken;
   constructor(private http:HttpClient) { }
   /**********************************************authentification *******************************************/
